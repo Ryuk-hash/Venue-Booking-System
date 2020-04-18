@@ -1,0 +1,53 @@
+<div class="bg-primary p-2 text-white" [class.bg-warning]="editing" [class.text-dark]="editing">
+
+    <h5>{{editing  ? "Edit" : "Create"}} a Booking</h5>
+
+</div>
+
+<form novalidate #form="ngForm" (ngSubmit)="save(form)">
+
+    <div class="form-group">
+        <label>Faculty-Name</label>
+        <input class="form-control" name="name" [(ngModel)]="product.name" />
+    </div>
+
+    <div class="form-group">
+        <label>Venue-Name</label>
+        <input class="form-control" name="category" [(ngModel)]="product.category" />
+    </div>
+
+    <div class="form-group">
+        <label>Branch</label>
+        <input class="form-control" placeholder="(CSE/ECE/ME/Civil)" name="branch" [(ngModel)]="product.branch" />
+    </div>
+
+    <div class="form-group">
+        <label>Date of Booking</label>
+        <input class="form-control" type="date" name="date" [(ngModel)]="product.date" />
+    </div>
+
+    <div class="form-group">
+        <label>Start Time</label>
+        <input type="time" class="form-control" name="start" [(ngModel)]="product.start" />
+    </div>
+
+    <div class="form-group">
+        <label>End Time</label>
+        <input type="time" class="form-control" name="end" [(ngModel)]="product.end" />
+    </div>
+
+    <div class="form-group">
+        <label>Purpose</label>
+        <textarea class="form-control" name="purpose" [(ngModel)]="product.purpose">
+            </textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [class.btn-warning]="editing">
+        {{editing ? "Save" : "Create"}}
+    </button>
+
+    <button type="reset" class="btn btn-secondary" routerLink="/admin/main/products">
+        Cancel
+    </button>
+
+</form>

@@ -1,0 +1,37 @@
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Faculty-Name</th>
+            <th>Venue-Name</th>
+            <th>Branch</th>
+            <th>Date of Booking</th>
+            <th>Start</th> 
+            <th>End</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of getProducts()">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.category}}</td>
+            <td>{{p.branch}}</td>
+            <td>{{p.date}}</td>
+            <td>{{p.start}}</td>
+            <td>{{p.end}}</td>
+            <td>
+                <button class="btn btn-sm btn-warning"
+                        [routerLink]="['/admin/main/products/edit', p.id]">
+                    Edit
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-primary" routerLink="/admin/main/products/create">
+    Book Another Venue
+</button>
